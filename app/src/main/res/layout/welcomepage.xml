@@ -65,10 +65,12 @@
                     android:id="@+id/editTextPhone"
                     android:layout_width="330dp"
                     android:layout_height="60dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
                     android:background="@drawable/customeedittext"
+
                     android:ems="10"
                     android:fontFamily="@font/fontt"
-
                     android:hint="Phone number"
                     android:inputType="phone"
                     android:padding="10dp"
@@ -85,10 +87,12 @@
                     android:layout_width="330dp"
                     android:layout_height="60dp"
 
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
                     android:background="@drawable/customeedittext"
+
                     android:ems="10"
                     android:fontFamily="@font/fontt"
-
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:padding="15dp"
@@ -145,6 +149,36 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.663" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/load"
+                    android:layout_width="246dp"
+                    android:layout_height="91dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:foregroundGravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    app:cardBackgroundColor="#01a9be"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.491"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pass"
+                    app:layout_constraintVertical_bias="0.109">
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/loading">
+
+                    </pl.droidsonroids.gif.GifImageView>
+<!--                        android:background="@drawable/loading"-->
+                        />
+
+
+                </androidx.cardview.widget.CardView>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

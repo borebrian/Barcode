@@ -6,6 +6,8 @@ package com.example.barcode
 import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
+import android.text.TextUtils
+import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.httpGet
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.welcomepage.*
+import kotlinx.android.synthetic.main.welcomepage.view.*
 import okhttp3.OkHttpClient
 import org.apache.http.client.methods.HttpGet
 import org.json.JSONObject
@@ -32,78 +35,76 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.welcomepage)
         setSupportActionBar(findViewById(R.id.toolbar))
-        val user = editTextPhone.text.toString();
-        val pass = pass.text.toString();
+        load.visibility=View.GONE;
+
+
 
         forgot.setOnClickListener {
-            run("http://fuelaholdings-002-site28.itempurl.com/configuration.php");
+            HTTPAsyncTask().execute("http://hmkcode-api.appspot.com/rest/api/hello/Android")
         }
         button.setOnClickListener() {
-            if (user.trim().count() > 0 || pass.trim().count() > 0) {
-                button.text = user.count().toString();
-            } else {
-                val snackBar = Snackbar.make(
-                    it, "Username or password is required!",
-                    Snackbar.LENGTH_LONG
-                ).setAction("Action", null)
-                snackBar.setActionTextColor(Color.parseColor("#01a9be"))
-                val snackBarView = snackBar.view
-                snackBarView.setBackgroundColor(Color.parseColor("#01a9be"))
-                val textView =
-                    snackBarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
-                textView.setTextColor(Color.WHITE)
-                snackBar.show()
+            val user = editTextPhone.text.toString();
+            val passdata = pass.text.toString();
+            if (TextUtils.isEmpty(user)) {
+                editTextPhone.error = "Please enter username here!";
+
+            } else if (TextUtils.isEmpty(passdata)) {
+                pass.error = "Please enter password here!";
+
+            } else{
+
+                HTTPAsyncTask().execute("http://hmkcode-api.appspot.com/rest/api/hello/Android")
+
+
+                    Toast.makeText(this,"Filled",Toast.LENGTH_LONG).show()
+
+//                button.text = pass.text
+//
+//                val snackBar = Snackbar.make(
+//                    it, "Username or password is required!",
+//                    Snackbar.LENGTH_LONG
+//                ).setAction("Action", null)
+//                snackBar.setActionTextColor(Color.parseColor("#01a9be"))
+//                val snackBarView = snackBar.view
+//                snackBarView.setBackgroundColor(Color.parseColor("#01a9be"))
+//                val textView =
+//                    snackBarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
+//                textView.setTextColor(Color.WHITE)
+//                snackBar.show()
+//                button.text = editTextPhone.text;
+
+                }
             }
-        }
-
-
-
-
-
-
-
-
-
-
-
-//    val obj = JSONObject(json.toString())
-//    val personFirstName: String = obj.getString("message")
-////    val personLastName: String = obj.getString("message")
-//    snack(personFirstName)
-////    val url1:URL;
-//    val conn = url1.openConnection() as HttpURLConnection
-}
-    private fun run(url: String) {
-//
-//var response1:String
-//        Fuel.get(url)
-//            .response { request, response, result ->
-//                println(request)
-//                println(response)
-//                val json_contact = JSONObject(result.get().toString())
-//                val name: String = json_contact.getString("error")
-//                forgot.text = name
-//                println(name)
-//                print(result.toString())
-//                response1=name;
-//                handleJSON(name)
-//
-////
-//            }
-        HTTPAsyncTask().execute("http://hmkcode-api.appspot.com/rest/api/hello/Android")
-    }
-    private fun handleJSON(json: String) {
-        Toast.makeText(applicationContext, json,Toast.LENGTH_LONG).show()
 
     }
+
+
     inner class HTTPAsyncTask : AsyncTask<String, Void, String>() {
         override fun doInBackground(vararg urls: String?): String {
 
-            return   URL("http://hmkcode-api.appspot.com/rest/api/hello/Android").readText()
+            runOnUiThread {
+                forgot.visibility = View.GONE;
+                button.visibility=View.GONE;
+                load.visibility=View.VISIBLE;
+            }
+
+
+
+
+            return   URL("http://fuelaholdings-002-site28.itempurl.com/configuration.php").readText()
 
         }
         override fun onPostExecute(result: String?) {
-            forgot.text = result.toString()
+            runOnUiThread {
+
+            forgot.visibility = View.VISIBLE;
+            button.visibility=View.VISIBLE;
+            load.visibility=View.GONE;
+                val obj = JSONObject(result)
+                val employee: JSONObject = obj.getJSONObject("error")
+
+            forgot.text = employee.toString()
+        }
         }
     }
 }
