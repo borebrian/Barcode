@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/bg"
+                    android:alpha="0.3"
+                    android:scaleType="centerCrop"/>
+        <LinearLayout
+            android:layout_width="407dp"
+            android:layout_height="727dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--                        <androidx.cardview.widget.CardView-->
+                <!--                            android:id="@+id/cardView"-->
+                <!--                            android:layout_width="369dp"-->
+                <!--                            android:layout_height="273dp"-->
+                <!--                            android:layout_marginStart="20dp"-->
+                <!--                            android:elevation="30dp"-->
+                <!--                            app:cardBackgroundColor="@android:color/white"-->
+                <!--                            app:cardCornerRadius="5dp"-->
+                <!--                            app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--                            app:layout_constraintStart_toStartOf="parent"-->
+                <!--                            app:layout_constraintTop_toTopOf="parent"-->
+                <!--                            app:layout_constraintVertical_bias="0.524">-->
+
+                <!--                        </androidx.cardview.widget.CardView>-->
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="102dp"
+                    android:layout_height="187dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.527"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.151"
+                    app:srcCompat="@drawable/blue" />
+
+                <EditText
+                    android:id="@+id/editTextPhone"
+                    android:layout_width="330dp"
+                    android:layout_height="60dp"
+                    android:background="@drawable/customeedittext"
+                    android:ems="10"
+                    android:fontFamily="@font/fontt"
+
+                    android:hint="Phone number"
+                    android:inputType="phone"
+                    android:padding="10dp"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.261" />
+
+                <EditText
+                    android:id="@+id/pass"
+                    android:layout_width="330dp"
+                    android:layout_height="60dp"
+
+                    android:background="@drawable/customeedittext"
+                    android:ems="10"
+                    android:fontFamily="@font/fontt"
+
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:padding="15dp"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                    app:layout_constraintVertical_bias="0.452" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button1"
+                    android:fontFamily="@font/fontt"
+                    android:text="Log in"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.147"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pass"
+                    app:layout_constraintVertical_bias="0.163" />
+
+                <Button
+                    android:id="@+id/forgot"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button1"
+                    android:fontFamily="@font/fontt"
+                    android:text="Reset password"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.848"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pass"
+                    app:layout_constraintVertical_bias="0.163" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:fontFamily="@font/fontt"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BarCode"
+                    app:layout_constraintBottom_toTopOf="@+id/editTextPhone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.538"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.663" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+        </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
